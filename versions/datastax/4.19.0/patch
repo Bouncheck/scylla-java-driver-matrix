@@ -663,6 +663,22 @@ index 3eb40fd85..df1a5e40b 100644
    @Test
    public void should_select_with_per_partition_limit() {
      PagingIterable<Simple> elements = dao.selectWithPerPartitionLimit(5);
+diff --git a/integration-tests/src/test/resources/logback-test.xml b/integration-tests/src/test/resources/logback-test.xml
+index a2179e435..071a87d9a 100644
+--- a/integration-tests/src/test/resources/logback-test.xml
++++ b/integration-tests/src/test/resources/logback-test.xml
+@@ -28,9 +28,9 @@
+     <appender-ref ref="STDOUT"/>
+   </root>
+   <logger name="org.apache.directory" level="${adsServerLevel:-ERROR}"/>
+-  <logger name="com.datastax.oss.driver" level="${ossDriverLevel:-ERROR}"/>
++  <logger name="com.datastax.oss.driver" level="${ossDriverLevel:-DEBUG}"/>
+   <logger name="com.datastax.dse.driver" level="${dseDriverLevel:-ERROR}"/>
+-  <logger name="com.datastax.oss.simulacron" level="${simulacronLevel:-ERROR}"/>
++  <logger name="com.datastax.oss.simulacron" level="${simulacronLevel:-DEBUG}"/>
+   <logger name="com.datastax.oss.driver.api.testinfra.ccm" level="${ccmLevel:-INFO}"/>
+   <!-- Set this logger to DEBUG to help debugging OSGi tests -->
+   <logger name="org.ops4j" level="${osgiLevel:-ERROR}"/>
 diff --git a/test-infra/revapi.json b/test-infra/revapi.json
 index c75a98cb4..366049236 100644
 --- a/test-infra/revapi.json

@@ -11,6 +11,22 @@ index c7b51c040..ed202b1d4 100644
        if (!CcmBridge.DSE_ENABLEMENT) {
          // CcmBridge does not report accurate C* versions for DSE, only approximated values
          assertThat(node.getCassandraVersion()).isEqualTo(ccmRule.getCassandraVersion());
+diff --git a/integration-tests/src/test/resources/logback-test.xml b/integration-tests/src/test/resources/logback-test.xml
+index a2179e435..071a87d9a 100644
+--- a/integration-tests/src/test/resources/logback-test.xml
++++ b/integration-tests/src/test/resources/logback-test.xml
+@@ -28,9 +28,9 @@
+     <appender-ref ref="STDOUT"/>
+   </root>
+   <logger name="org.apache.directory" level="${adsServerLevel:-ERROR}"/>
+-  <logger name="com.datastax.oss.driver" level="${ossDriverLevel:-ERROR}"/>
++  <logger name="com.datastax.oss.driver" level="${ossDriverLevel:-DEBUG}"/>
+   <logger name="com.datastax.dse.driver" level="${dseDriverLevel:-ERROR}"/>
+-  <logger name="com.datastax.oss.simulacron" level="${simulacronLevel:-ERROR}"/>
++  <logger name="com.datastax.oss.simulacron" level="${simulacronLevel:-DEBUG}"/>
+   <logger name="com.datastax.oss.driver.api.testinfra.ccm" level="${ccmLevel:-INFO}"/>
+   <!-- Set this logger to DEBUG to help debugging OSGi tests -->
+   <logger name="org.ops4j" level="${osgiLevel:-ERROR}"/>
 diff --git a/test-infra/revapi.json b/test-infra/revapi.json
 index 3cfbc8b53..0fa33a041 100644
 --- a/test-infra/revapi.json
